@@ -1,4 +1,4 @@
-torch
+# torch # (installed in Dockerfile instead)
 pytorch-lightning
 python-dotenv
 hydra-core

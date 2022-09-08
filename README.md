@@ -1,3 +1,21 @@
+# Audio Diffusion Pytorch Trainer Docker
+Dockerized fork of [`audio-diffusion-pytorch-trainer`](https://github.com/archinetai/audio-diffusion-pytorch-trainer).
+
+## Usage
+
+```bash
+docker run --gpus all -e WANDB_PROJECT=project-name -e WANDB_ENTITY=entity-name -e WANDB_API_KEY=api-key audio-diffusion-pytorch-trainer
+```
+
+## Building
+
+```bash
+docker build -t audio-diffusion-pytorch-trainer .
+```
+
+# Original README
+---
+
 # Trainer for [`audio-diffusion-pytorch`](https://github.com/archinetai/audio-diffusion-pytorch)
 
 ## Setup
