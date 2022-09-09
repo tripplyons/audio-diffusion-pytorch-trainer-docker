@@ -426,6 +426,8 @@ class EMA(pl.Callback):
     ) -> None:
         self._ema_state_dict_ready = callback_state["_ema_state_dict_ready"]
         self.ema_state_dict = callback_state["ema_state_dict"]
+        for key, value in self.ema_state_dict.items():
+            self.ema_state_dict[key] = value.to("cuda:0")
 
 
 """ Schedulers """

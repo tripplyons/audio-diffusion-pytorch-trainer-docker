@@ -6,7 +6,7 @@ defaults:
 
 seed: 12345
 train: True
-ignore_warnings: False
+ignore_warnings: True
 print_config: False # Prints tree with all configurations
 work_dir: ${hydra:runtime.cwd}  # This is the root of the project
 logs_dir: ${work_dir}${oc.env:DIR_LOGS}  # This is the root for all logs

@@ -10,10 +10,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip libsnd
 RUN python3 -m pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 RUN python3 -m pip install -r requirements.txt
 
-ENV HYDRA_FULL_ERROR=1
-ENV DIR_LOGS=/home/app/logs
-ENV DIR_DATA=/home/app/data
+ENV DIR_LOGS=/logs
+ENV DIR_DATA=/data
 RUN mkdir -p $DIR_LOGS
 RUN mkdir -p $DIR_DATA
 
-CMD python3 train.py exp=base_test
+ENV HYDRA_FULL_ERROR=1

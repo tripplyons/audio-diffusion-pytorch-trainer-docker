@@ -7,3 +7,4 @@ venv/
 logs/
 data/
 train.log
+.vscode/

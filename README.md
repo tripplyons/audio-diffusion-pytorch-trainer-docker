@@ -3,17 +3,31 @@ Dockerized fork of [`audio-diffusion-pytorch-trainer`](https://github.com/archin
 
 ## Usage
 
+### Building
+
 ```bash
-docker run --gpus all -e WANDB_PROJECT=project-name -e WANDB_ENTITY=entity-name -e WANDB_API_KEY=api-key audio-diffusion-pytorch-trainer
+docker build -t tripplyons/audio-diffusion-pytorch-trainer .
 ```
 
-## Building
-
+### Training
 ```bash
-docker build -t audio-diffusion-pytorch-trainer .
+docker run -t -d --name audio-diff --gpus all -e WANDB_PROJECT=project-name -e WANDB_ENTITY=entity-name -e WANDB_API_KEY=api-key tripplyons/audio-diffusion-pytorch-trainer
+docker exec -it audio-diff bash
+# run this in the container:
+python3 train.py exp=upsampler_youtube_0_riddim
+```
+
+### Resuming Training from Checkpoint
+```bash
+docker run -t -d --name audio-diff --gpus all -e WANDB_PROJECT=project-name -e WANDB_ENTITY=entity-name -e WANDB_API_KEY=api-key tripplyons/audio-diffusion-pytorch-trainer
+docker exec -it audio-diff bash
+docker cp model.ckpt audio-diff:/home/app/model.ckpt
+# run this in the container:
+python3 train.py exp=upsampler_youtube_0_riddim +ckpt=model.ckpt
 ```
 
 # Original README
+
 ---
 
 # Trainer for [`audio-diffusion-pytorch`](https://github.com/archinetai/audio-diffusion-pytorch)
